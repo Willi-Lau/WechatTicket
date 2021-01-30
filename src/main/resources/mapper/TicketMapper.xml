@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwy.demo.mapper.TicketMapper">
+
+    <resultMap id="candidateimages" type="com.lwy.demo.entity.Candidate">
+        <id column="cid" property="cid"></id>
+        <result column="aid" property="aid"></result>
+        <result column="cname" property="cname"></result>
+        <result column="hots" property="hots"></result>
+        <result column="gifts" property="gifts"></result>
+        <result column="tickets" property="tickets"></result>
+        <result column="cdeclaration" property="cdeclaration"></result>
+        <collection property="imagesList" ofType="com.lwy.demo.entity.Images">
+            <id column="id" property="id"></id>
+            <result column="cid" property="cid"></result>
+            <result column="imgurl" property="imgurl"></result>
+        </collection>
+
+
+    </resultMap>
+
+
+    <select id="selectcandidateimages" parameterType="int" resultMap="candidateimages">
+    select c.cid,c.aid,c.cname,c.hots,c.gifts,c.tickets,i.imgurl,c.cdeclaration
+    from candidate c,images i
+    where c.cid = i.cid
+    and c.cid = #{cid};
+
+
+
+    </select>
+
+
+
+
+</mapper>
