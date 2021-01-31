@@ -34,8 +34,9 @@ public class TicketController {
     @ApiOperation("投票")
     @RequestMapping(value = "/addticket")
     public void addticket(int cid,String ip) {
-        //更改选手表把票数加1
+        //更改选手表把票数加1  热度加5
          ticketService.addticket1(cid);
+
 
         //写入日志
         java.sql.Date date = new java.sql.Date(new Date().getTime());

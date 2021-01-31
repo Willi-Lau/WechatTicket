@@ -26,6 +26,7 @@
 
 
            </div>
+
            <div style="margin-top: 20px">
                <el-button @click="gohome()">回首页</el-button>
                <el-button @click="giveticket()">投票</el-button>
@@ -50,7 +51,8 @@
                 cid:this.$route.query.cid,
                 candidate:{
 
-                }
+                },
+
             }
         },
         created() {
@@ -89,6 +91,7 @@
                 // alert(cip);//cip就是本机ip地址
                   //前端显示 +1
                  this.candidate[0].tickets += 1;
+                this.candidate[0].hots += 5;
                 //后台数据库部分加1
                 this.$axios.post('TicketController/addticket',
                     this.$qs.stringify(
@@ -102,7 +105,13 @@
                 });
             },
             givegift(){
+                this.$router.push({
+                    path:'/gift' ,               	//目标URL，为注册的路由
 
+                    query:{
+                        cid:this.cid      	//传入参数，参数会写入URL，params用法同query，只不过参数不会写进URL
+                    }
+                })
             },
         }
     }

@@ -18,7 +18,7 @@ public interface TicketMapper {
     /**
      * 根据cid 票数加1
      */
-    @Update("update candidate set tickets = tickets + 1 where cid = #{cid};")
+    @Update("update candidate set tickets = tickets + 1 ,hots = hots +5 where cid = #{cid};")
     void addticket1(int cid);
     /**
      * 写入投票日志

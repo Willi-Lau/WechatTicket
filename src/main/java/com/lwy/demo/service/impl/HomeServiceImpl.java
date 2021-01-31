@@ -5,12 +5,14 @@ import com.lwy.demo.mapper.HomeMapper;
 import com.lwy.demo.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 @Service
+@Transactional
 public class HomeServiceImpl implements HomeService {
     //注入
     @Autowired
