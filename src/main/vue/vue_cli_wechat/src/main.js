@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import qs from 'qs'
-import $ from 'jquery'
+
 import store from './store'
 // import './plugins/element.js'
 

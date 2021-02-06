@@ -51,13 +51,17 @@
           </el-form>
       </div>
 <!--      搜索结果-->
-      <div>
-          <div v-for="(item,index) in candidate" class="router_buy_all" style="border: 1px solid darkgray" @click="candidateinf(item.cid)">
+      <div class="home_all">
+          <div v-for="(item,index) in candidate"  class="home_inf"  @click="candidateinf(item.cid)">
 
 
-              <img class="router_buy_all_img" :src=item.imgurl width="100px" >
-              选手id:<span>{{item.cid}}</span>
-              选手票数:<span>{{item.tickets}}</span>
+              <img class="router_buy_all_img" :src=item.imgurl width="70px" >
+              <div class="home_id">
+                  选手id:<span>{{item.cid}}</span>
+                  <br> <br>
+                  选手票数:<span>{{item.tickets}}</span>
+              </div>
+
 
 
           </div>
@@ -119,6 +123,9 @@ export default {
     }
   },
   created() {
+
+
+
           //  查看报名活动的人数
 
           this.$axios.post('HomeController/selecttotalpeople',
@@ -376,6 +383,26 @@ export default {
 
 <style>
 /*<!--   访问量等信息 -->*/
+.home_inf img{
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+.home_id{
+    position: absolute;
+   right: 60px;
+    top: 22px;
+
+
+}
+.home_inf{
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+    height: 100px;
+    position: relative;
+}
+
+
     .home .number{
        background-color: darkgray;
         position: relative;

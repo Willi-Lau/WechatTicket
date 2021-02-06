@@ -1,14 +1,17 @@
 <template>
     <div>
 
-        <div v-for="(item,index) in candidate" class="router_buy_all" style="border: 1px solid darkgray" @click="candidateinf(item.cid)">
+        <div v-for="(item,index) in candidate" class="ranke_inf"  @click="candidateinf(item.cid)">
 
 
             <img class="router_buy_all_img" :src=item.imgurl width="100px" ><br>
-            <span style="font-size: 20px">排名:{{index+1}}</span> <br>
-            选手id:<span>{{item.cid}}</span>
-            选手票数:<span>{{item.tickets}}</span>
-            选手礼物:<span>{{item.gifts}}</span>
+            <span style="font-size: 20px" class="ranke_inf_ranke">排名:{{index+1}}</span> <br>
+            <div class="ranke_inf_id">
+                选手id:<span>{{item.cid}}</span> <br>
+                选手票数:<span>{{item.tickets}}</span> <br>
+                选手礼物:<span>{{item.gifts}}</span> <br>
+            </div>
+
 
 
         </div>
@@ -63,3 +66,27 @@
         }
     }
 </script>
+
+<style>
+    .ranke_inf_id{
+        position: absolute;
+        top: 50px;
+        right: 40px;
+    }
+    .ranke_inf img{
+position: absolute;
+        left: 80px;
+        top: 40px;
+    }
+    .ranke_inf_ranke{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .ranke_inf{
+height: 150px;
+        position: relative;
+        border-bottom: solid 1px black;
+        border-top: solid 1px black;
+    }
+</style>
